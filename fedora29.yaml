@@ -19,8 +19,8 @@
         datavolumes:
           - name: fedora29
             source:
-              http:
-                url: kubevirt/fedora-cloud-container-disk-demo:lastest
+              registry:
+                url: "{{ image_path | default('docker://machacekondra/fedora30:latest') }}"
             pvc:
               accessModes:
                 - ReadWriteOnce
