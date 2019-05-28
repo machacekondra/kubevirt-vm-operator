@@ -16,10 +16,12 @@
             bridge: {}
             network:
               pod: {}
-        disks:
-          - name: fedora29rootdisk
-            volume:
-              containerDisk:
-                image: kubevirt/fedora-cloud-container-disk-demo:lastest
-              disk:
-                bus: virtio
+        datavolumes:
+          - name: fedora29
+            source:
+              http:
+                url: kubevirt/fedora-cloud-container-disk-demo:lastest
+            pvc:
+              accessModes:
+                - ReadWriteOnce
+              storage: "{{ disk_size | default('20Gi') }}"
