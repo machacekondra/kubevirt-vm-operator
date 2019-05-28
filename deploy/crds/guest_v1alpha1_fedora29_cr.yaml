@@ -1,0 +1,7 @@
+apiVersion: guest.kubevirt.io/v1alpha1
+kind: Fedora29
+metadata:
+  name: example-fedora29
+spec:
+  # Add fields here
+  size: 3
