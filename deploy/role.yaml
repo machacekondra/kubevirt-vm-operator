@@ -5,6 +5,13 @@ metadata:
   name: kubevirt-vm-operator
 rules:
 - apiGroups:
+  - "kubevirt.io"
+  resources:
+  - virtualmachines
+  - virtualmachineinstances
+  verbs:
+  - '*'
+- apiGroups:
   - ""
   resources:
   - pods

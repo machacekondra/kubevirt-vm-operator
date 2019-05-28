@@ -2,4 +2,4 @@
 - version: v1alpha1
   group: guest.kubevirt.io
   kind: Fedora29
-  role: /opt/ansible/roles/fedora29
+  playbook: /opt/ansible/fedora29.yaml

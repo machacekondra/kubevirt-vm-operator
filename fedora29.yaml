@@ -1,0 +1,25 @@
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Create Fedora29 virtual machine
+      kubevirt_vm:
+        state: "{{ state | default('present') }}"
+        name: "{{ meta.name | mandatory }}"
+        namespace: "{{ meta.namespace | default('default') }}"
+        memory: "{{ memory | default('1024Mi') }}"
+        cpu_cores: "{{ cpu_cores | default(1) }}"
+        labels: "{{ labels | default(omit) }}"
+        cloud_init_nocloud: "{{ cloud_init | default(omit) }}"
+        interfaces:
+          - name: default
+            bridge: {}
+            network:
+              pod: {}
+        disks:
+          - name: fedora29rootdisk
+            volume:
+              containerDisk:
+                image: kubevirt/fedora-cloud-container-disk-demo:lastest
+              disk:
+                bus: virtio

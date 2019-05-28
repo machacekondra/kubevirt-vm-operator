@@ -1,7 +1,13 @@
 apiVersion: guest.kubevirt.io/v1alpha1
 kind: Fedora29
 metadata:
-  name: example-fedora29
+  name: myfedora29vm
+  namespace: default
 spec:
-  # Add fields here
-  size: 3
+  memory: 512Mi
+  cpu_cores: 1
+  cloud_init:
+    userData: |-
+      #cloud-config
+      password: fedora
+      chpasswd: { expire: False }
