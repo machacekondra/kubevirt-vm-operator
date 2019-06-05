@@ -19,10 +19,10 @@ apiVersion: guest.kubevirt.io/v1alpha1
 kind: Fedora29
 metadata:
   name: myfedora29vm
+  namespace: default
 spec:
   memory: 512Mi
   cpu_cores: 1
-  namespace: default
   cloud_init:
     userData: |-
       #cloud-config
